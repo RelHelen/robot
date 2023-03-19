@@ -13,7 +13,10 @@ $my_filed = get_post_meta($post->ID);
     <div class="container_"> 
           <div class="post_single-text">
              <!-- это пост                -->
-                 <?php the_content(); ?>           
+                 <?php the_content();
+                 echo get_post_meta($post->ID, 'field_wheelbase', true); 
+                 
+                 ?>           
         </div>
                     <!-- вывод категории -->
         <div class="prod_main-category">

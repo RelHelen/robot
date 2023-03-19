@@ -98,7 +98,9 @@ Version: 1.0.0
         .content {
             will-change: transform;
         }
-        
+       .post,.page,.e-con-inner{
+            /* overflow-x: hidden !important; */
+        }
         .blue {
             color: var(--blue);
         }
@@ -249,7 +251,7 @@ Version: 1.0.0
             left: 0;
             min-width: 200px;
             width: 100%;
-            background-color: rgba(121, 118, 118, .5);
+            background-color: rgba(121, 118, 118, 1);
             transform: rotateX(-90deg);
             transform-origin: 0 0;
             z-index: 1000;
@@ -287,6 +289,9 @@ Version: 1.0.0
             box-shadow: inset 0 0px 6px 0 rgba(85, 84, 84, 0.4);
         }
         /* siub-menu sub-menu */
+        .nav-header>.menu .sub-menu>li {
+         position: relative;
+        }
         
         .nav-header>.menu>li>.sub-menu>li>.sub-menu {
             height: auto;

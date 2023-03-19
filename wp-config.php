@@ -85,7 +85,7 @@ define( 'WP_DEBUG', false );
 
 
 /* Это всё, дальше не редактируем. Успехов! */
-
+// define("WP_MEMORY_LIMIT", "512M");
 /** Абсолютный путь к директории WordPress. */
 if ( ! defined( 'ABSPATH' ) ) {
 	define( 'ABSPATH', __DIR__ . '/' );
