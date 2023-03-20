@@ -343,6 +343,16 @@ Version: 1.0.0
             background-position: center;
             bottom: calc(var(--index) * -4.5);
         }
+        .page ul , .post ul {
+             list-style: disc;
+        }
+       
+        .page ul li::marker, .post ul li::marker{
+           color: var(--blue);
+        }
+        .page ul li, .post ul li{
+            margin: 8px 0;
+         }
         /* маленькая карточка на главнй странице ===========*/
         
         .cart-best {
