@@ -17,13 +17,15 @@ window.addEventListener('scroll', e => {
 })
 
 let scrollSpeed = window.pageYOffset / 2;
-let scrollObject = document.getElementById("scrollObject");
 
-window.addEventListener("scroll", () => {
-    scrollObject.style.transform = "rotate("
-    `${scrollSpeed}`
-    "deg)";
-});
+let scrollObject = document.getElementById("scrollObject");
+if (scrollObject) {
+    window.addEventListener("scroll", () => {
+        scrollObject.style.transform = "rotate("
+        `${scrollSpeed}`
+        "deg)";
+    });
+}
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother)
 ScrollSmoother.create({

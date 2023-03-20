@@ -6,7 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <?php 
-    $my_filed = get_post_meta( $post->ID);
+  if(!isset($post->ID) || $post->ID != null ){
+     $my_filed = get_post_meta($post->ID);
+    }
     //var_dump($my_filed);     
 ?>
 <meta name="keywords" content="<?php

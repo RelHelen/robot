@@ -99,7 +99,11 @@ Version: 1.0.0
             will-change: transform;
         }
         
-        .blue {
+        .overflow-hidden {
+            overflow: hidden !important;
+        }
+        
+        over .blue {
             color: var(--blue);
         }
         
