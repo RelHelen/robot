@@ -1,12 +1,14 @@
-<?php
+<!--шаблон для вывода  одного поста  -->
+<?php 
 defined("ABSPATH") or die;
-$post = $wp_query->post;
-
-if ( in_category( 'dron' ) ) { //ID категории
-    include( TEMPLATEPATH.'/single-cast.php' );
-} else {
-    include( TEMPLATEPATH.'/single-default.php' );
-     
-}
-?>
-
+get_header(); ?>
+<section class="post">
+                <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>                     
+                <?php get_template_part('template-parts/content-single',get_post_format())            
+                
+                ?>
+                <?php endwhile; else : ?>
+                    <!-- <p>Записей нет.</p> -->
+                <?php endif; ?>   
+</section>
+<?php get_footer(); ?>

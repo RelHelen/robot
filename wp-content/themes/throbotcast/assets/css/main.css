@@ -1,129 +1,277 @@
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
-:root {
-	--index: calc(1vw + 1vh);
-	--text: #e7e7e0;
-	--transition: transform .75s cubic-bezier(.075, .5, 0, 1);
-}
-@font-face {
-	font-family: raleway_f;
-	src: url(../fonts/raleway-regular.woff2);
-}
-@font-face {
-	font-family: raleway_f;
-	src: url(../fonts/raleway-black.woff2);
-	font-weight: 900;
-}
-body {
-	background-color: #010101;
-	font-family: raleway_f, sans-serif;
-	line-height: 1.55;
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
-.main-header {
-	position: relative;
+:root {
+    --index: calc(1vw + 1vh);
+    --text: #FEFBF1;
+    --transition: transform .75s cubic-bezier(.075, .5, 0, 1);
+    --blue: #1CABD9;
+    --green: #20D4DF;
+    --light: #FEFBF1;
+    --dark: #181818;
 }
+
+@font-face {
+    font-family: raleway_f;
+    src: url(../fonts/raleway-regular.woff2);
+}
+
+@font-face {
+    font-family: raleway_f;
+    src: url(../fonts/raleway-black.woff2);
+    font-weight: 900;
+}
+
+@font-face {
+    font-family: Roboto_f;
+    src: url(../fonts/Roboto-Regular.ttf);
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Roboto_f;
+    src: url(../fonts/Roboto-Bold.ttf);
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Advent_f;
+    src: url(assets/fonts/AdventPro-Regular.ttf);
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: RobotoCondensed_f;
+    src: url(assets/fonts/RobotoCondensed-Regular.ttf);
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/* .main-header {
+    position: relative;
+}
+
 .main-header::after {
-	content: '';
-	position: absolute;
-	z-index: 100;
-	width: 100%;
-	height: calc(var(--index) * 10);
-	background-image: url(../img/ground.png);
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: center;
-	bottom: calc(var(--index) * -4.5);
+    content: '';
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+    height: calc(var(--index) * 10);
+    background-image: url(../img/ground.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    bottom: calc(var(--index) * -4.5);
 }
+
 .layers {
-	height: 100vh;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	text-align: center;
-	overflow: hidden;
-	position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
 }
+
 .layer {
-	height: 100%;
-	width: 100%;
-	position: absolute;
-	background-size: cover;
-	background-position: center;
-	will-change: transform;
-	z-index: 2;
-	transition: var(--transition);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-size: cover;
+    background-position: center;
+    will-change: transform;
+    z-index: 2;
+    transition: var(--transition);
 }
+
 .layers__base {
-	transform: translate3d(0, calc(var(--scrollTop) / 1.6), 0);
-	z-index: 0;
+    transform: translate3d(0, calc(var(--scrollTop) / 1.6), 0);
+    z-index: 0;
 }
+
 .layers__middle {
-	transform: translate3d(0, calc(var(--scrollTop) / 2.5), 0);
+    transform: translate3d(0, calc(var(--scrollTop) / 2.5), 0);
 }
+
 .layers__front {
-	transform: translate3d(0, calc(var(--scrollTop) / 5.7), 0);
+    transform: translate3d(0, calc(var(--scrollTop) / 5.7), 0);
 }
+
 .layer__header {
-	z-index: 1;
-	transform: translate3d(0, calc(var(--scrollTop) / 2), 0);
-	transition: var(--transition);
-	will-change: transform;
-	text-transform: uppercase;
-	font-weight: 900;
-	color: var(--text);
-	text-shadow: 0 0 15px #9d822b;
+    z-index: 1;
+    transform: translate3d(0, calc(var(--scrollTop) / 2), 0);
+    transition: var(--transition);
+    will-change: transform;
+    text-transform: uppercase;
+    font-weight: 900;
+    color: var(--text);
+    text-shadow: 0 0 15px #9d822b;
 }
+
 .layers__title {
-	font-size: calc(var(--index) * 2.65);
-	letter-spacing: calc(var(--index) / 2.25);
+    font-size: calc(var(--index) * 2.65);
+    letter-spacing: calc(var(--index) / 2.25);
 }
+
 .layers__caption {
-	font-size: calc(var(--index) / 1.175);
-	letter-spacing: calc(var(--index) / 3.5);
-	margin-top: calc(var(--index) * -.75);
+    font-size: calc(var(--index) / 1.175);
+    letter-spacing: calc(var(--index) / 3.5);
+    margin-top: calc(var(--index) * -.75);
 }
+
 .main-article {
-	--main-article-transform: translate3d(0, calc(var(--scrollTop) / -7.5), 0);
-	min-height: 100vh;
-	background-size: cover;
-	background-position: center;
-	color: var(--text);
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	position: relative;
-	text-align: center;
-	/* Update: */
-	top: -1px;
-	z-index: 10;
+    --main-article-transform: translate3d(0, calc(var(--scrollTop) / -7.5), 0);
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    color: var(--text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    text-align: center;
+    
+
+top: -1px;
+z-index: 10;
+
 }
 .main-article__header {
-	text-transform: uppercase;
-	font-size: calc(var(--index) * 1.8);
-	letter-spacing: calc(var(--index) / 7.5);
-	transform: var(--main-article-transform);
-	transition: var(--transition);
-	will-change: transform;
+    text-transform: uppercase;
+    font-size: calc(var(--index) * 1.8);
+    letter-spacing: calc(var(--index) / 7.5);
+    transform: var(--main-article-transform);
+    transition: var(--transition);
+    will-change: transform;
 }
 .main-article__paragraph {
-	max-width: calc(var(--index) * 30);
-	font-size: calc(var(--index) * .9);
-	margin-top: calc(var(--index) / 1.25);
-	transform: var(--main-article-transform);
-	transition: var(--transition);
-	will-change: transform;
+    max-width: calc(var(--index) * 30);
+    font-size: calc(var(--index) * .9);
+    margin-top: calc(var(--index) / 1.25);
+    transform: var(--main-article-transform);
+    transition: var(--transition);
+    will-change: transform;
 }
+*/
+
 .content {
-	will-change: transform;
+    will-change: transform;
 }
+
 .copy {
-	position: absolute;
-	bottom: calc(var(--index) * 2.5);
-	opacity: .45;
-	font-size: calc(var(--index) * .75);
-	letter-spacing: calc(var(--index) / 37.5);
+    position: absolute;
+    bottom: calc(var(--index) * 2.5);
+    opacity: .45;
+    font-size: calc(var(--index) * .75);
+    letter-spacing: calc(var(--index) / 37.5);
+}
+
+
+/* элементы на странице */
+
+.page h2 {
+    margin-top: 4rem;
+}
+
+.page h2,
+.post h2 {
+    text-align: center;
+}
+
+
+/* списки ===================== */
+
+.page ul,
+.post ul {
+    list-style: disc;
+    margin: 1rem 2rem;
+}
+
+.page ul li::marker,
+.post ul li::marker {
+    color: var(--blue);
+}
+
+.page ul li,
+.post ul li {
+    margin: 8px 0;
+}
+
+.page ul li:hover,
+.post ul li:hover {
+    color: #e4e1e1c4;
+}
+
+
+/* таблицы ===================== */
+
+.page table,
+.post table {
+    width: 90%;
+    margin: 0 auto;
+    font-family: RobotoCondensed_f, Arial, Helvetica, sans-serif;
+    color: var(--text);
+    font-weight: normal;
+}
+
+.page table th,
+.page table td,
+.post table td,
+.post table th {
+    border-top: 1px solid rgba(120, 120, 120, 0.2);
+    padding: 7px 15px;
+    font-weight: normal;
+    text-align: left;
+    color: var(--text);
+}
+
+.page table tr:last-child th,
+.page table tr:last-child td,
+.post table tr:last-child td,
+.post table tr:last-child th {
+    border-bottom: 1px solid rgba(120, 120, 120, 0.2);
+}
+
+.page table td,
+.post table td {
+    color: #ccc;
+}
+
+.page table tr:nth-child(2n) th,
+.page table tr:nth-child(2n) td,
+.post table tr:nth-child(2n) td,
+.post table tr:nth-child(2n) th {
+    background-color: rgba(71, 71, 71, 0.2);
+}
+
+.page table tbody tr:hover th,
+.page table tbody tr:hover td,
+.post table tbody tr:hover td,
+.post table tbody tr:hover th {
+    background-color: rgba(92, 91, 91, 0.5);
+}
+
+.page table thead th,
+.page table thead td,
+.post table thead td,
+.post table thead th {
+    border-top: 0px solid rgba(120, 120, 120, 0.2);
+    padding: 10px 15px;
+    font-weight: normal;
+    text-align: left;
+    background-color: rgba(71, 71, 71, 0.4);
+    font-size: 1.2rem;
+    color: var(--text);
+    -webkit-transform: rotate();
+    -ms-transform: rotate();
+    transform: rotate();
 }

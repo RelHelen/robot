@@ -7,10 +7,10 @@ define("RBTFUNCT_PLUGIN_DIR",plugin_dir_path(__FILE__));
 function rbtheme_scripts(){
     // get_template_directory_uri путь к  папке активной темы throbotcast  
 
-    wp_enqueue_style('animat-style',get_template_directory_uri().'/assets/css/main.css',array(),false,'(max-width: 768px)');
+  
 	wp_enqueue_style('reboot',get_template_directory_uri().'/assets/css/reboot.css',array(),false);
 	 
-	
+	wp_enqueue_style('animat-style',get_template_directory_uri().'/assets/css/main.css',array(),false);
 	wp_enqueue_style('icomoon',get_template_directory_uri().'/assets/icomoon/style.css',array(),false);
 
     wp_enqueue_style('style',get_stylesheet_uri());
@@ -69,14 +69,24 @@ function  rbtheme_setup(){
 		'aside', 
 		'gallery',
 		'image',
-		'video'	
+		'video',
+		
 	));	
+	//Изменение длины обрезаемого текста у excerpt
+	add_filter( 'excerpt_length', function(){
+		return 20;
+	} );
+	//конец у excerpt если слов больше
+	add_filter( 'excerpt_more', function( $more ) {
+		return '...';
+	} );
 	//функция очистки title у ссылки рубрики
 	add_filter('wp_list_categories','remove_title');
 	function remove_title($str){
 		$str=preg_replace('#title="[^"]+"#', 'title=""', $str);
 		return $str;
 	}
+	//регистрация меню
 	if(function_exists('register_nav_menus')){
 		register_nav_menus(
 			array( // создаём любое количество областей
@@ -94,6 +104,9 @@ require_once RBTFUNCT_PLUGIN_DIR.'class-ftidpost-footer.php';
 Ftidpost_Footer::cr_menu_items_ID('footer_menu');
 }
 add_action('after_setup_theme','rbtheme_setup');
+
+
+
 
 //создание секций на странице настройки темы
 require_once RBTFUNCT_PLUGIN_DIR.'ftcustom.php';

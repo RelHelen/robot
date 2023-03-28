@@ -5,8 +5,15 @@
     <meta charset="<?php bloginfo('charset') ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+    <?php    
+        if (get_bloginfo('name') ) : ?>            
+            <?php echo get_bloginfo('name') ;  ?>           	 
+        <?php endif; ?>
+    </title>
 <?php 
-    $my_filed = get_post_meta( $post->ID);
+if(isset($post->ID)){
+    $my_filed = get_post_meta($post->ID);}
     //var_dump($my_filed);     
 ?>
 <meta name="keywords" content="<?php
@@ -16,7 +23,10 @@
 <meta name="description" content="<?php
  if( isset( $my_filed['my_description']) ){
     echo($my_filed["my_description"][0]);}
-?>">
+    else{          
+        if (get_bloginfo('description')){             
+            echo get_bloginfo('description'); 
+        }}?>">
 <?php wp_head();?>
 </head>
 <body <?php body_class() ?>>
@@ -47,12 +57,12 @@
                         </div>   
                     </div> 
                 </div>
+                <div class="header-nav-bg">
                 <div class="container">
                     <div class="header-nav">
                         <div class="site-brand">                                          
-                            <?php if(has_custom_logo()):?>
-                                
-                                    <?php  the_custom_logo();  ?>       
+                            <?php if(has_custom_logo()):?>                                
+                                    <?php  the_custom_logo();  ?>     
                                     
                             <?php endif; ?>               
                             <?php
@@ -65,12 +75,19 @@
                             <?php endif; ?>
                                                 
                         </div>
-                        <nav  class="nav-header" role="navigation">
+                        <nav  class="nav-header" role="navigation" id="nav-header">
                             <?php  wp_nav_menu(array(
                                     'theme_location'=>'header_menu',
                                     'container'=>false,
                             ))?>               
                         </nav>
+                        <div class="hamb-menu" id="hamb-menu">
+                            <div class="hamp-item hamp-item-1"></div>
+                            <div class="hamp-item hamp-item-2"></div>
+                            <div class="hamp-item hamp-item-3"></div>
+                        </div>
                     </div> 
-                </div>        
+                </div> 
+                </div>       
             </header> 
+            <main>
